@@ -1,1 +1,1 @@
-char *to_lowercase(char *);
+char* to_lowercase(char* str);

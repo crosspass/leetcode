@@ -1,4 +1,7 @@
-char* toLowerCase(char* str) {
+#include <stdio.h>
+#include <string.h>
+
+char* to_lowercase(char* str) {
   char *s = str;
   char char_index[128];
   char_index[65] = 'a';
