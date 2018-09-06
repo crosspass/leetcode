@@ -1,9 +1,8 @@
-#include <stdio.h>
-#include <string.h>
+#include <minunit.h>
 
 char* to_lowercase(char* str) {
   char *s = str;
-  char char_index[128];
+  static char char_index[128];
   char_index[65] = 'a';
   char_index[66] = 'b';
   char_index[67] = 'c';
@@ -38,4 +37,27 @@ char* to_lowercase(char* str) {
     s++;
   }
   return str;
+}
+
+MU_TEST(test_string_eq){
+  char s[] = "A HERO";
+  mu_assert_string_eq("a hero", to_lowercase(s));
+  char s2[] = "a [hero";
+  mu_assert_string_eq("a [hero", to_lowercase(s2));
+  char s3[] = "a hero";
+  mu_assert_string_eq("a hero", to_lowercase(s3));
+  char s4[] = "a hero ";
+  mu_assert_string_eq("a hero ", to_lowercase(s4));
+  char s5[] = " a hero";
+  mu_assert_string_eq(" a hero", to_lowercase(s5));
+}
+
+MU_TEST_SUITE(test_suite) {
+  MU_RUN_TEST(test_string_eq);
+}
+
+int main(void) {
+  MU_RUN_SUITE(test_suite);
+  MU_REPORT();
+  return 0;
 }
