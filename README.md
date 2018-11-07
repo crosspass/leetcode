@@ -7,4 +7,5 @@ https://github.com/siu/minunit
 
 minunit.h
 
-locate /usr/local/include
+#### mac env 
+locate minunit.h under /usr/local/include
