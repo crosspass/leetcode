@@ -1,4 +1,10 @@
 # leetcode
-Leetcode 用ruby刷题
+Leetcode https://leetcode.com/problems
 
-Dating是用于个人挂号
+## c
+### test
+https://github.com/siu/minunit
+
+minunit.h
+
+locate /usr/local/include
