@@ -1,4 +1,11 @@
 # leetcode
-Leetcode 用ruby刷题
+Leetcode https://leetcode.com/problems
 
-Dating是用于个人挂号
+## c
+### test
+https://github.com/siu/minunit
+
+minunit.h
+
+#### mac env 
+locate minunit.h under /usr/local/include
