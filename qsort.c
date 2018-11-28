@@ -11,10 +11,18 @@ int main() {
   /* int array[] = { 7, 2, 6, 4, 5, 3, 7, 8 }; */
   int array[] = { 9, 2, 3, 4, 5, 6, 7, 10 };
   int array2[] = { 9, 2, 3, 4, 5, 6, 7, 10 };
+
   lprintf(array, 8);
+  printf("\n");
   qsort(array, 0, 7);
-  qsort2(array, 0, 7);
+  printf("--------\n");
   lprintf(array, 8);
+
+  printf("********************************\n\n");
+  lprintf(array2, 8);
+  printf("\n");
+  qsort2(array2, 0, 7);
+  printf("--------\n");
   lprintf(array2, 8);
   return 1;
 }
@@ -45,9 +53,11 @@ int partition(int array[], int lo, int hi) {
 void qsort2(int array[], int lo, int hi) {
   if (lo < hi) {
     int p = partition2(array, lo, hi);
-    lprintf(array, 8);
-    qsort2(array, lo, p);
-    qsort2(array, p + 1, hi);
+    if ( lo < p && p < hi) {
+      lprintf(array, 8);
+      qsort2(array, lo, p);
+      qsort2(array, p, hi);
+    }
   }
 }
 
@@ -60,7 +70,9 @@ int partition2(int array[], int lo, int hi) {
       i++;
     while(array[j] > pivot)
       j--;
+    printf("i: %d, j: %d\n", i, j);
     if(i >= j)
+      swap(array, j, hi);
       return j;
     swap(array, i, hi);
   }
